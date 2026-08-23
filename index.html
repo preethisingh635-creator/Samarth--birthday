@@ -3,324 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Make a Wish ✨</title>
+<title>For Samarth ❤️</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Georgia,serif;
+    background:#fff5f7;
+    color:#4b2630;
+    overflow:hidden;
 }
 
-body {
-    margin: 0;
-    background: #fff6f8;
-    color: #4b2630;
-    font-family: Georgia, serif;
-    text-align: center;
+.slide{
+    display:none;
+    width:100vw;
+    height:100vh;
+    padding:20px 15px 65px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
 }
 
-.page {
-    min-height: 100vh;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.slide.active{
+    display:flex;
+    animation:fade .7s ease;
 }
 
-.page.active {
-    display: flex;
+@keyframes fade{
+    from{opacity:0;transform:translateX(20px)}
+    to{opacity:1;transform:translateX(0)}
 }
 
-/* ================= PASSWORD PAGE ================= */
+h1{font-size:35px;margin:10px}
+h2{font-size:28px;margin:10px}
+p{font-size:18px;line-height:1.6}
 
-#lockPage h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
+.heart{font-size:48px}
+
+button{
+    border:0;
+    background:#d85b79;
+    color:white;
+    padding:13px 22px;
+    border-radius:30px;
+    font-size:17px;
+    font-family:Georgia,serif;
+    cursor:pointer;
+    margin-top:12px;
 }
 
-#lockPage p {
-    font-size: 20px;
+button:active{
+    transform:scale(.94);
 }
 
-#display {
-    width: 290px;
-    height: 55px;
-    background: white;
-    border: 2px solid #d9577c;
-    border-radius: 15px;
-    margin: 15px 0 25px;
-    font-size: 25px;
-    letter-spacing: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* PASSWORD */
+
+#pinDisplay{
+    min-width:240px;
+    min-height:45px;
+    margin:12px;
+    padding:8px;
+    border-bottom:2px solid #d85b79;
+    font-size:25px;
+    letter-spacing:5px;
+    font-family:monospace;
 }
 
-.keypad {
-    display: grid;
-    grid-template-columns: repeat(3, 75px);
-    gap: 12px;
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,60px);
+    gap:10px;
+    justify-content:center;
 }
 
-.keypad button {
-    width: 75px;
-    height: 60px;
-    border: none;
-    border-radius: 16px;
-    background: #d9577c;
-    color: white;
-    font-size: 23px;
-    font-weight: bold;
-    cursor: pointer;
+.key{
+    width:60px;
+    height:55px;
+    padding:0;
+    margin:0;
+    border-radius:50%;
+    font-size:20px;
 }
 
-.keypad button:active {
-    transform: scale(0.90);
+.zero{
+    grid-column:2;
 }
 
-.clear {
-    background: #777 !important;
+.clear{
+    background:#777;
 }
 
-.enter {
-    background: #8c3150 !important;
+#wrong{
+    min-height:25px;
+    color:#c03955;
+    font-weight:bold;
 }
 
-#error {
-    color: #d33;
-    margin-top: 15px;
-    min-height: 20px;
+/* CANDLE */
+
+.cake{
+    font-size:95px;
+    margin:5px;
 }
 
-
-/* ================= WISH PAGE ================= */
-
-#wishPage h1 {
-    font-size: 40px;
-    margin-bottom: 25px;
+.flame{
+    font-size:55px;
+    transition:.6s;
 }
 
-.cake {
-    position: relative;
-    width: 220px;
-    height: 170px;
-    margin-bottom: 20px;
+.flame.off{
+    opacity:0;
+    transform:scale(0) translateY(-20px);
 }
 
-.cakeBody {
-    position: absolute;
-    left: 15px;
-    top: 60px;
-    width: 190px;
-    height: 90px;
-    background: #f5ad42;
-    border-radius: 0 0 35px 35px;
+.hidden{
+    display:none!important;
 }
 
-.cakeTop {
-    position: absolute;
-    left: 15px;
-    top: 35px;
-    width: 190px;
-    height: 70px;
-    background: #ffd477;
-    border-radius: 50%;
-    z-index: 2;
+/* NOTE */
+
+.note{
+    width:94%;
+    max-width:700px;
+    max-height:64vh;
+    overflow-y:auto;
+    background:white;
+    padding:20px;
+    border-radius:22px;
+    box-shadow:0 5px 25px rgba(0,0,0,.12);
 }
 
-.cream {
-    position: absolute;
-    left: 15px;
-    top: 48px;
-    width: 190px;
-    height: 30px;
-    background: #fff4d6;
-    border-radius: 50%;
-    z-index: 3;
+.note p{
+    text-align:left;
+    font-size:16px;
+    line-height:1.55;
 }
 
-.candle {
-    position: absolute;
-    top: -5px;
-    width: 18px;
-    height: 55px;
-    border-radius: 4px;
-    z-index: 5;
+/* PHOTO */
+
+.photo{
+    width:94%;
+    max-width:850px;
+    max-height:68vh;
+    object-fit:contain;
+    border-radius:18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.2);
 }
 
-.candle1 {
-    left: 65px;
-    background: #54b9e8;
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    top:-30px;
+    font-size:22px;
+    z-index:1000;
+    pointer-events:none;
+    animation:fall 3.5s linear forwards;
 }
 
-.candle2 {
-    left: 101px;
-    background: #ed6c98;
-}
-
-.candle3 {
-    left: 137px;
-    background: #f3a341;
-}
-
-.flame {
-    position: absolute;
-    width: 20px;
-    height: 30px;
-    top: -35px;
-    left: -1px;
-    background: #ff9d00;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    transition: 0.3s;
-}
-
-.flame.off {
-    opacity: 0;
-    transform: rotate(-45deg) scale(0);
-}
-
-.fire {
-    font-size: 80px;
-    margin-bottom: 10px;
-    transition: 0.3s;
-}
-
-.fire.off {
-    opacity: 0;
-    transform: scale(0);
-}
-
-.instruction {
-    font-size: 21px;
-    margin: 10px;
-}
-
-.blowButton {
-    border: none;
-    background: #d9577c;
-    color: white;
-    padding: 18px 35px;
-    border-radius: 40px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.blowButton:active {
-    transform: scale(0.93);
-}
-
-#micStatus {
-    font-size: 15px;
-    color: #777;
-    margin-top: 15px;
-}
-
-
-/* ================= PHOTO PAGE ================= */
-
-#photoPage h1 {
-    font-size: 34px;
-    margin-bottom: 20px;
-}
-
-.photoFrame {
-    width: 90%;
-    max-width: 380px;
-    height: 500px;
-    background: white;
-    padding: 10px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-}
-
-.photoFrame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: opacity 0.5s;
-}
-
-.photoMessage {
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-@media(max-width:400px) {
-    .photoFrame {
-        height: 430px;
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
     }
+}
+
+@media(max-width:500px){
+    h1{font-size:30px}
+    h2{font-size:25px}
+    p{font-size:16px}
+    .cake{font-size:82px}
+    .note{max-height:62vh}
+    .note p{font-size:15px}
 }
 </style>
 </head>
 
-
 <body>
 
+<!-- ================= SLIDE 1 ================= -->
 
-<!-- ==================================================
-     PAGE 1 : PASSWORD
-================================================== -->
+<section class="slide active" id="slide1">
 
-<section id="lockPage" class="page active">
+    <div class="heart">❤️</div>
 
-    <h1>🔐 A Little Surprise ✨</h1>
+    <h1>Hiiii Samarth 🥹</h1>
 
-    <p>Enter the secret code</p>
+    <p>There's a little surprise waiting for you...</p>
 
-    <div id="display"></div>
+    <p><b>🔐 Enter the secret code</b></p>
+
+    <div id="pinDisplay">________</div>
 
     <div class="keypad">
 
-        <button onclick="addNumber('1')">1</button>
-        <button onclick="addNumber('2')">2</button>
-        <button onclick="addNumber('3')">3</button>
+        <button class="key" type="button" onclick="pressKey(1)">1</button>
+        <button class="key" type="button" onclick="pressKey(2)">2</button>
+        <button class="key" type="button" onclick="pressKey(3)">3</button>
 
-        <button onclick="addNumber('4')">4</button>
-        <button onclick="addNumber('5')">5</button>
-        <button onclick="addNumber('6')">6</button>
+        <button class="key" type="button" onclick="pressKey(4)">4</button>
+        <button class="key" type="button" onclick="pressKey(5)">5</button>
+        <button class="key" type="button" onclick="pressKey(6)">6</button>
 
-        <button onclick="addNumber('7')">7</button>
-        <button onclick="addNumber('8')">8</button>
-        <button onclick="addNumber('9')">9</button>
+        <button class="key" type="button" onclick="pressKey(7)">7</button>
+        <button class="key" type="button" onclick="pressKey(8)">8</button>
+        <button class="key" type="button" onclick="pressKey(9)">9</button>
 
-        <button class="clear" onclick="clearCode()">C</button>
-        <button onclick="addNumber('0')">0</button>
-        <button class="enter" onclick="checkPassword()">✓</button>
+        <button class="key zero" type="button" onclick="pressKey(0)">0</button>
 
     </div>
 
-    <div id="error"></div>
+    <button class="clear" type="button" onclick="clearPin()">Clear</button>
+
+    <div id="wrong"></div>
 
 </section>
 
 
+<!-- ================= SLIDE 2 ================= -->
 
-<!-- ==================================================
-     PAGE 2 : MAKE A WISH
-================================================== -->
+<section class="slide" id="slide2">
 
-<section id="wishPage" class="page">
+    <div class="heart">🎈🎉❤️</div>
 
-    <h1>Make a Wish ✨</h1>
+    <h1>
+        Happiest Birthday<br>
+        Samarth ❤️
+    </h1>
 
-    <div class="cake">
+    <p>Today is all about you! 🥳</p>
 
-        <div class="cakeBody"></div>
-        <div class="cakeTop"></div>
-        <div class="cream"></div>
+    <button type="button" onclick="nextSlide()">
+        Continue ❤️
+    </button>
 
-        <div class="candle candle1">
-            <div class="flame"></div>
-        </div>
+</section>
 
-        <div class="candle candle2">
-            <div class="flame"></div>
-        </div>
 
-        <div class="candle candle3">
-            <div class="fl
+<!-- ================= SLIDE 3 ================= -->
+
+<section class="slide" id="slide3">
+
+    <h2>Blow the candle and make a wish ✨</h2>
+
+    <div class="cake">🎂</div>
+
+    <div id="flame" class="flame">🔥</div>
+
+    <p id="blowText">
+        Tap the button and then blow into your phone 💨
+    </p>
+
+    <button type="button" onclick="startBlowing()">
+        🎤 Start Blowing
+    </button>
+
+    <div id="wish" class="hidden">
+        <b>You did it! 🥹✨<br>Make your wish ❤️</b>
+    </div>
+
+    <button id="afterBlow"
+            class="hidden"
+            type="button"
+            onclick="nextSlide()">
+        Continue 💌
+    </button>
+
+</section>
+
+
+<!-- ================= SLIDE 4 ================= -->
+
+<section class="slide" id="slide4">
+
+    <h2>To a very special person ❤️</h2>
+
+    <div class="note">
+
+        <p>
+            Happiest birthday to my favourite person,
+            to a beautiful soul. ❤️
+        </p>
+
+        <p>
+            Very proud of you. You are doing well in life,
+            keep trying hard till you achieve whatever you
+            wish in life.
+        </p>
+
+        <p>
+            You are such a hardworking person.
+            Make your mamma proud. ❤️
+        </p>
+
+        <p>
+            And I will alwayss be there for you whenever
+            you need me, in your ups and downs.
+        </p>
+
+        <p>
+            You are such a pure soul, always wanting good
+            for others. Alwayss stay happy,
+            keep growing
