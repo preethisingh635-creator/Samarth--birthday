@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Samarth ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #fff5f7;
+    color: #4b2630;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 30px 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fade 0.8s ease;
+}
+
+.slide.active {
+    display: flex;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+h1 {
+    font-size: 38px;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    background: #d85b79;
+    color: white;
+    font-size: 17px;
+    margin-top: 18px;
+    cursor: pointer;
+}
+
+input {
+    padding: 14px;
+    width: 180px;
+    text-align: center;
+    border: 2px solid #d85b79;
+    border-radius: 25px;
+    font-size: 18px;
+    outline: none;
+}
+
+.heart {
+    font-size: 45px;
+}
+
+.note {
+    max-width: 700px;
+    max-height: 75vh;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.8);
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+}
+
+.note p {
+    font-size: 17px;
+    text-align: left;
+}
+
+.photo {
+    width: 90%;
+    max-width: 850px;
+    max-height: 72vh;
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.cake {
+    font-size: 120px;
+    margin: 10px;
+}
+
+.flame {
+    display: inline-block;
+    font-size: 55px;
+    transition: 0.5s;
+}
+
+.off {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    font-size: 21px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.next {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    padding: 10px 18px;
+    font-size: 15px;
+}
+
+#wrong {
+    color: #c03955;
+    margin-top: 12px;
+}
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    font-size: 22px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<section class="slide active" id="slide1">
+    <div class="heart">❤️</div>
+    <h1>Hiiii Samarth 🥹</h1>
+
+    <p>There's a little surprise waiting for you...</p>
+
+    <p><b>🔐 Enter your birthday to unlock</b></p>
+
+    <input id="birthday" placeholder="DD-MM" maxlength="5">
+
+    <button onclick="unlock()">Unlock 🎁</button>
+
+    <div id="wrong"></div>
+</section>
+
+
+<!-- SLIDE 2 -->
+<section class="slide" id="slide2">
+    <div class="heart">🎈🎉</div>
+
+    <h1>Happiest Birthday<br>Samarth ❤️</h1>
+
+    <p>Today is all about you! 🥳</p>
+
+    <button onclick="nextSlide()">Continue ❤️</button>
+</section>
+
+
+<!-- SLIDE 3 -->
+<section class="slide" id="slide3">
+
+    <h2>Make a Wish ✨</h2>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <div id="flame" class="flame">🔥</div>
+
+    <p id="blowText">
+        Blow the candle and make a wish 💨✨
+    </p>
+
+    <button onclick="startBlowing()">🎤 Blow Candle</button>
+
+    <div id="wish" class="message hidden">
+        Wish made! ✨❤️
+    </div>
+
+    <button id="afterBlow" class="hidden" onclick="nextSlide()">
+        Continue 💌
+    </button>
+</section>
+
+
+<!-- SLIDE 4 -->
+<section class="slide" id="slide4">
+
+    <h2>To a very special person ❤️</h2>
+
+    <div class="note">
+
+        <p>
+        Happiest birthday to my favourite person, to a beautiful soul. ❤️
+        </p>
+
+        <p>
+        Very proud of you. You are doing well in life, so keep trying hard till you achieve whatever you wish in life.
+        </p>
+
+        <p>
+        You are such a hardworking person. Make your mamma proud. ❤️
+        </p>
+
+        <p>
+        And I will alwayss be there for you whenever you need me, in your ups and downs.
+        </p>
+
+        <p>
+        You are such a pure soul, always wanting good for others.
+        Alwayss stay happy and keep growing. 💪🏻
+        </p>
+
+        <p>
+        A caring and lovable person... ❤️
+        </p>
+
+        <p>
+        Once again, happiest birthday ❤️☺️
+        </p>
+
+    </div>
+
+    <button onclick="nextSlide()">There's more... 📸</button>
+</section>
+
+
+<!-- SLIDE 5 -->
+<section class="slide" id="slide5">
+
+    <h2>Some memories ❤️</h2>
+
+    <img
+        src="five_photo_collage_faces_unchanged.png"
+        class="photo"
+        alt="Our memories">
+
+    <button onclick="nextSlide()">One more thing 🎵</button>
+</section>
+
+
+<!-- SLIDE 6 -->
+<section class="slide" id="slide6">
+
+    <div class="heart">🎵❤️</div>
+
+    <h2>For you...</h2>
+
+    <p><b>Love U Chinna</b></p>
+
+    <p>
+        A little song for my favourite person ❤️
+    </p>
+
+    <audio id="song" controls>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <p>
+        Listen with headphones 🎧❤️
+    </p>
+
+    <button onclick="nextSlide()">Finally... ❤️</button>
+</section>
+
+
+<!-- SLIDE 7 -->
+<section class="slide" id="slide7">
+
+    <div class="heart">❤️</div>
+
+    <h1>Once again...</h1>
+
+    <h1>Happiest Birthday<br>Samarth ❤️☺️</h1>
+
+    <p>Keep smiling. Keep growing. Keep being you. 🫶🏻</p>
+
+    <div class="heart">🎂🎉❤️</div>
+
+</section>
+
+
+<script>
+
+let currentSlide = 1;
+
+function showSlide(number) {
+
+    document.querySelectorAll(".slide").forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    document.getElementById("slide" + number).classList.add("active");
+
+    currentSlide = number;
+}
+
+function nextSlide() {
+
+    if (currentSlide < 7) {
+        showSlide(currentSlide + 1);
+    }
+}
+
+function unlock() {
+
+    let value = document.getElementById("birthday").value.trim();
+
+    if (value === "24-08") {
+
+        createConfetti();
+        showSlide(2);
+
+    } else {
+
+        document.getElementById("wrong").innerHTML =
+        "Ayyoo 😭😂 Try again! Hint: DD-MM ❤️";
+    }
+}
+
+
+// Candle blowing
+let audioContext;
+let analyser;
+let microphone;
+let blowing = false;
+
+async function startBlowing() {
+
+    if (blowing) return;
+
+    blowing = true;
+
+    document.getElementById("blowText").innerHTML =
+        "Blow into your microphone 💨🕯️";
+
+    try {
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true
+        });
+
+        audioContext = new AudioContext();
+        analyser = audioContext.createAnalyser();
+
+        microphone = audioContext.createMediaStreamSource(stream);
+
+        analyser.fftSize = 256;
+
+        microphone.connect(analyser);
+
+        detectBlow();
+
+    } catch (error) {
+
+        alert("Please allow microphone access to blow the candle 💨❤️");
+        blowing = false;
+    }
+}
+
+function detectBlow() {
+
+    let data = new Uint8Array(analyser.frequencyBinCount);
+
+    analyser.getByteFrequencyData(data);
+
+    let total = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        total += data[i];
+    }
+
+    let average = total / data.length;
+
+    if (average > 45) {
+
+        blowOutCandle();
+
+    } else {
+
+        requestAnimationFrame(detectBlow);
+    }
+}
+
+function blowOutCandle() {
+
+    document.getElementById("flame").classList.add("off");
+
+    document.getElementById("blowText").innerHTML =
+        "You did it! 🥹✨ Now make your wish ❤️";
+
+    document.getElementById("wish").classList.remove("hidden");
+
+    document.getElementById("afterBlow").classList.remove("hidden");
+
+    if (audioContext) {
+        audioContext.close();
+    }
+
+    createConfetti();
+}
+
+
+// Confetti
+function createConfetti() {
+
+    const emojis = ["❤️", "🎉", "🎈", "✨", "💖"];
+
+    for (let i = 0; i < 30; i++) {
+
+        let item = document.createElement("div");
+
+        item.className = "confetti";
+
+        item.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        item.style.left = Math.random() * 100 + "vw";
+
+        item.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
