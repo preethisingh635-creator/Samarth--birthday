@@ -1,284 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Samarth ❤️</title>
 
 <style>
-*{box-sizing:border-box}
 
-body{
-    margin:0;
-    font-family:Georgia,serif;
-    background:#fff5f7;
-    color:#4b2630;
-    overflow:hidden;
+* {
+    box-sizing: border-box;
 }
 
-.slide{
-    display:none;
-    width:100vw;
-    height:100vh;
-    padding:20px 15px 65px;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #fff4f7;
+    color: #4a2630;
+    overflow: hidden;
 }
 
-.slide.active{
-    display:flex;
-    animation:fade .7s ease;
+/* ================= SLIDES ================= */
+
+.slide {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-@keyframes fade{
-    from{opacity:0;transform:translateX(20px)}
-    to{opacity:1;transform:translateX(0)}
+.slide.active {
+    display: flex;
 }
 
-h1{font-size:35px;margin:10px}
-h2{font-size:28px;margin:10px}
-p{font-size:18px;line-height:1.6}
+/* ================= TEXT ================= */
 
-.heart{font-size:48px}
-
-button{
-    border:0;
-    background:#d85b79;
-    color:white;
-    padding:13px 22px;
-    border-radius:30px;
-    font-size:17px;
-    font-family:Georgia,serif;
-    cursor:pointer;
-    margin-top:12px;
+h1 {
+    font-size: 34px;
+    margin: 10px;
 }
 
-button:active{
-    transform:scale(.94);
+h2 {
+    font-size: 28px;
 }
 
-/* PASSWORD */
-
-#pinDisplay{
-    min-width:240px;
-    min-height:45px;
-    margin:12px;
-    padding:8px;
-    border-bottom:2px solid #d85b79;
-    font-size:25px;
-    letter-spacing:5px;
-    font-family:monospace;
+p {
+    font-size: 18px;
+    line-height: 1.5;
 }
 
-.keypad{
-    display:grid;
-    grid-template-columns:repeat(3,60px);
-    gap:10px;
-    justify-content:center;
+.heart {
+    font-size: 50px;
 }
 
-.key{
-    width:60px;
-    height:55px;
-    padding:0;
-    margin:0;
-    border-radius:50%;
-    font-size:20px;
+/* ================= BUTTON ================= */
+
+button {
+    border: none;
+    background: #d85b79;
+    color: white;
+    padding: 13px 22px;
+    margin: 7px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-family: Georgia, serif;
+    cursor: pointer;
 }
 
-.zero{
-    grid-column:2;
+button:active {
+    transform: scale(0.94);
 }
 
-.clear{
-    background:#777;
+/* ================= PASSWORD ================= */
+
+#display {
+    min-width: 250px;
+    min-height: 45px;
+    margin: 15px;
+    padding: 8px;
+
+    border-bottom: 2px solid #d85b79;
+
+    font-family: monospace;
+    font-size: 27px;
+    letter-spacing: 5px;
 }
 
-#wrong{
-    min-height:25px;
-    color:#c03955;
-    font-weight:bold;
+.keypad {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 65px);
+
+    gap: 10px;
+
+    justify-content: center;
 }
 
-/* CANDLE */
+.number {
+    width: 65px;
+    height: 58px;
 
-.cake{
-    font-size:95px;
-    margin:5px;
+    margin: 0;
+    padding: 0;
+
+    border-radius: 50%;
+
+    font-size: 21px;
 }
 
-.flame{
-    font-size:55px;
-    transition:.6s;
+.zero {
+    grid-column: 2;
 }
 
-.flame.off{
-    opacity:0;
-    transform:scale(0) translateY(-20px);
+.clear {
+    background: #777;
 }
 
-.hidden{
-    display:none!important;
+#passwordMessage {
+    min-height: 25px;
+    color: #c03955;
 }
 
-/* NOTE */
+/* ================= CANDLE ================= */
 
-.note{
-    width:94%;
-    max-width:700px;
-    max-height:64vh;
-    overflow-y:auto;
-    background:white;
-    padding:20px;
-    border-radius:22px;
-    box-shadow:0 5px 25px rgba(0,0,0,.12);
+.cake {
+    font-size: 100px;
 }
 
-.note p{
-    text-align:left;
-    font-size:16px;
-    line-height:1.55;
+.flame {
+    font-size: 55px;
+    transition: 0.5s;
 }
 
-/* PHOTO */
-
-.photo{
-    width:94%;
-    max-width:850px;
-    max-height:68vh;
-    object-fit:contain;
-    border-radius:18px;
-    box-shadow:0 8px 30px rgba(0,0,0,.2);
+.flame.off {
+    opacity: 0;
+    transform: scale(0);
 }
 
-/* CONFETTI */
-
-.confetti{
-    position:fixed;
-    top:-30px;
-    font-size:22px;
-    z-index:1000;
-    pointer-events:none;
-    animation:fall 3.5s linear forwards;
+.hidden {
+    display: none;
 }
 
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(360deg);
+/* ================= NOTE ================= */
+
+.note {
+    width: 94%;
+    max-width: 700px;
+    max-height: 65vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.12);
+}
+
+.note p {
+    text-align: left;
+    font-size: 16px;
+}
+
+/* ================= PHOTO ================= */
+
+.photo {
+    width: 94%;
+    max-width: 850px;
+    max-height: 70vh;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti {
+    position: fixed;
+
+    top: -30px;
+
+    font-size: 23px;
+
+    z-index: 999;
+
+    animation:
+        fall 3s linear forwards;
+}
+
+@keyframes fall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
     }
+
 }
 
-@media(max-width:500px){
-    h1{font-size:30px}
-    h2{font-size:25px}
-    p{font-size:16px}
-    .cake{font-size:82px}
-    .note{max-height:62vh}
-    .note p{font-size:15px}
+/* ================= MOBILE ================= */
+
+@media(max-width:500px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .cake {
+        font-size: 85px;
+    }
+
+    .note p {
+        font-size: 15px;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= SLIDE 1 ================= -->
 
-<section class="slide active" id="slide1">
+<!-- ================================================= -->
+<!-- SLIDE 1 : PASSWORD -->
+<!-- ================================================= -->
 
-    <div class="heart">❤️</div>
+<section
+    class="slide active"
+    id="slide1">
 
-    <h1>Hiiii Samarth 🥹</h1>
+    <div class="heart">
+        ❤️
+    </div>
 
-    <p>There's a little surprise waiting for you...</p>
+    <h1>
+        Hiiii Samarth 🥹
+    </h1>
 
-    <p><b>🔐 Enter the secret code</b></p>
+    <p>
+        There's a little surprise waiting for you...
+    </p>
 
-    <div id="pinDisplay">________</div>
+    <p>
+        <b>🔐 Enter the secret code</b>
+    </p>
+
+    <div id="display">
+        ________
+    </div>
+
 
     <div class="keypad">
 
-        <button class="key" type="button" onclick="pressKey(1)">1</button>
-        <button class="key" type="button" onclick="pressKey(2)">2</button>
-        <button class="key" type="button" onclick="pressKey(3)">3</button>
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('1')">
+            1
+        </button>
 
-        <button class="key" type="button" onclick="pressKey(4)">4</button>
-        <button class="key" type="button" onclick="pressKey(5)">5</button>
-        <button class="key" type="button" onclick="pressKey(6)">6</button>
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('2')">
+            2
+        </button>
 
-        <button class="key" type="button" onclick="pressKey(7)">7</button>
-        <button class="key" type="button" onclick="pressKey(8)">8</button>
-        <button class="key" type="button" onclick="pressKey(9)">9</button>
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('3')">
+            3
+        </button>
 
-        <button class="key zero" type="button" onclick="pressKey(0)">0</button>
+
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('4')">
+            4
+        </button>
+
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('5')">
+            5
+        </button>
+
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('6')">
+            6
+        </button>
+
+
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('7')">
+            7
+        </button>
+
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('8')">
+            8
+        </button>
+
+        <button
+            class="number"
+            type="button"
+            onclick="pressNumber('9')">
+            9
+        </button>
+
+
+        <button
+            class="number zero"
+            type="button"
+            onclick="pressNumber('0')">
+            0
+        </button>
 
     </div>
 
-    <button class="clear" type="button" onclick="clearPin()">Clear</button>
 
-    <div id="wrong"></div>
+    <button
+        class="clear"
+        type="button"
+        onclick="clearPassword()">
+
+        Clear
+
+    </button>
+
+
+    <div id="passwordMessage"></div>
 
 </section>
 
 
-<!-- ================= SLIDE 2 ================= -->
 
-<section class="slide" id="slide2">
+<!-- ================================================= -->
+<!-- SLIDE 2 : BIRTHDAY -->
+<!-- ================================================= -->
 
-    <div class="heart">🎈🎉❤️</div>
+<section
+    class="slide"
+    id="slide2">
+
+    <div class="heart">
+        🎈🎉❤️
+    </div>
 
     <h1>
-        Happiest Birthday<br>
+        Happiest Birthday
+        <br>
         Samarth ❤️
     </h1>
 
-    <p>Today is all about you! 🥳</p>
-
-    <button type="button" onclick="nextSlide()">
-        Continue ❤️
-    </button>
-
-</section>
-
-
-<!-- ================= SLIDE 3 ================= -->
-
-<section class="slide" id="slide3">
-
-    <h2>Blow the candle and make a wish ✨</h2>
-
-    <div class="cake">🎂</div>
-
-    <div id="flame" class="flame">🔥</div>
-
-    <p id="blowText">
-        Tap the button and then blow into your phone 💨
+    <p>
+        Today is all about you! 🥳
     </p>
 
-    <button type="button" onclick="startBlowing()">
-        🎤 Start Blowing
-    </button>
+    <button
+        type="button"
+        onclick="nextSlide()">
 
-    <div id="wish" class="hidden">
-        <b>You did it! 🥹✨<br>Make your wish ❤️</b>
-    </div>
+        Continue ❤️
 
-    <button id="afterBlow"
-            class="hidden"
-            type="button"
-            onclick="nextSlide()">
-        Continue 💌
     </button>
 
 </section>
 
 
-<!-- ================= SLIDE 4 ================= -->
 
-<section class="slide" id="slide4">
+<!-- ================================================= -->
+<!-- SLIDE 3 : CANDLE -->
+<!-- ================================================= -->
 
-    <h2>To a very special person ❤️</h2>
+<section
+    class="slide"
+    id="slide3">
+
+    <h2>
+        Blow the candle
+        <br>
+        and make a wish ✨
+    </h2>
+
+
+    <div class="cake">
+        🎂
+    </div>
+
+
+    <div
+        id="flame"
+        class="flame">
+
+        🔥
+
+    </div>
+
+
+    <p id="candleText">
+
+        Tap below and blow into your phone 💨
+
+    </p>
+
+
+    <button
+        type="button"
+        onclick="startMicrophone()">
+
+        🎤 Blow Candle
+
+    </button>
+
+
+    <div
+        id="wish"
+        class="hidden">
+
+        <p>
+            <b>
+                You did it! 🥹✨
+                <br>
+                Make your wish ❤️
+            </b>
+        </p>
+
+    </div>
+
+
+    <button
+        id="continueAfterCandle"
+        class="hidden"
+        type="button"
+        onclick="nextSlide()">
+
+        Continue 💌
+
+    </button>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SLIDE 4 : NOTE -->
+<!-- ================================================= -->
+
+<section
+    class="slide"
+    id="slide4">
+
+    <h2>
+        To a very special person ❤️
+    </h2>
+
 
     <div class="note">
 
@@ -289,8 +497,8 @@ button:active{
 
         <p>
             Very proud of you. You are doing well in life,
-            keep trying hard till you achieve whatever you
-            wish in life.
+            keep trying hard till you achieve whatever
+            you wish in life.
         </p>
 
         <p>
@@ -306,4 +514,641 @@ button:active{
         <p>
             You are such a pure soul, always wanting good
             for others. Alwayss stay happy,
-            keep growing
+            keep growing 💪🏻
+        </p>
+
+        <p>
+            A caring and lovable person..
+        </p>
+
+        <p>
+            Once again happiest birthday ❤️☺️
+        </p>
+
+    </div>
+
+
+    <button
+        type="button"
+        onclick="nextSlide()">
+
+        There's more... 📸
+
+    </button>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SLIDE 5 : PHOTO -->
+<!-- ================================================= -->
+
+<section
+    class="slide"
+    id="slide5">
+
+    <h2>
+        Some memories of us ❤️
+    </h2>
+
+
+    <img
+        class="photo"
+        src="five_photo_collage_faces_unchanged-1.png"
+        alt="Our memories">
+
+
+    <button
+        type="button"
+        onclick="nextSlide()">
+
+        One more thing 🎵
+
+    </button>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SLIDE 6 : SONG -->
+<!-- ================================================= -->
+
+<section
+    class="slide"
+    id="slide6">
+
+    <div class="heart">
+        🎵❤️
+    </div>
+
+
+    <h2>
+        A little something for you...
+    </h2>
+
+
+    <p>
+        <b>
+            Telephone Gelathi ❤️🎵
+        </b>
+    </p>
+
+
+    <p>
+        A little song for my favourite person ❤️
+    </p>
+
+
+    <a
+        href="https://open.spotify.com/track/7GxpTeNO2RlwyEsUbbIWJu"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <button type="button">
+
+            🎧 Listen to your song ❤️
+
+        </button>
+
+    </a>
+
+
+    <p>
+        Listen with headphones 🎧❤️
+    </p>
+
+
+    <button
+        type="button"
+        onclick="nextSlide()">
+
+        Finally... ❤️
+
+    </button>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SLIDE 7 : FINAL -->
+<!-- ================================================= -->
+
+<section
+    class="slide"
+    id="slide7">
+
+    <div class="heart">
+        ❤️
+    </div>
+
+
+    <h1>
+        Once again...
+    </h1>
+
+
+    <h1>
+        Happiest Birthday
+        <br>
+        Samarth ❤️☺️
+    </h1>
+
+
+    <p>
+        Keep smiling.
+        <br>
+        Keep growing.
+        <br>
+        Keep being you. 🫶🏻
+    </p>
+
+
+    <div class="heart">
+        🎂🎉❤️
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* ================================================= */
+/* SLIDE SYSTEM */
+/* ================================================= */
+
+let currentSlide = 1;
+
+
+function showSlide(number) {
+
+    const slides =
+        document.querySelectorAll(".slide");
+
+
+    slides.forEach(function(slide) {
+
+        slide.classList.remove("active");
+
+    });
+
+
+    const chosenSlide =
+        document.getElementById(
+            "slide" + number
+        );
+
+
+    if (chosenSlide) {
+
+        chosenSlide.classList.add("active");
+
+        currentSlide = number;
+
+    }
+
+}
+
+
+function nextSlide() {
+
+    if (currentSlide < 7) {
+
+        showSlide(
+            currentSlide + 1
+        );
+
+    }
+
+}
+
+
+
+/* ================================================= */
+/* PASSWORD */
+/* ================================================= */
+
+/*
+
+CORRECT PASSWORD:
+
+24-08-2006
+
+The keypad enters:
+
+2 4 0 8 2 0 0 6
+
+*/
+
+let password = "";
+
+const correctPassword =
+    "24082006";
+
+
+function pressNumber(number) {
+
+    if (password.length >= 8) {
+
+        return;
+
+    }
+
+
+    password =
+        password + number;
+
+
+    /*
+       THIS LINE MAKES THE
+       NUMBERS APPEAR
+       IMMEDIATELY.
+    */
+
+    document.getElementById(
+        "display"
+    ).innerText = password;
+
+
+    document.getElementById(
+        "passwordMessage"
+    ).innerText = "";
+
+
+    /*
+       Check after 8 numbers.
+    */
+
+    if (password.length === 8) {
+
+        if (
+            password ===
+            correctPassword
+        ) {
+
+            document.getElementById(
+                "passwordMessage"
+            ).innerText =
+                "Correct! ❤️";
+
+
+            createConfetti();
+
+
+            setTimeout(function() {
+
+                showSlide(2);
+
+            }, 500);
+
+
+        } else {
+
+            document.getElementById(
+                "passwordMessage"
+            ).innerText =
+                "Wrong code 😭 Try again!";
+
+
+            setTimeout(function() {
+
+                clearPassword();
+
+            }, 1000);
+
+        }
+
+    }
+
+}
+
+
+function clearPassword() {
+
+    password = "";
+
+
+    document.getElementById(
+        "display"
+    ).innerText =
+        "________";
+
+
+    document.getElementById(
+        "passwordMessage"
+    ).innerText = "";
+
+}
+
+
+
+/* ================================================= */
+/* EASY CANDLE BLOWING */
+/* ================================================= */
+
+let microphoneStream = null;
+let audioContext = null;
+let analyser = null;
+let microphone = null;
+let listening = false;
+
+
+async function startMicrophone() {
+
+    if (listening) {
+
+        return;
+
+    }
+
+
+    const text =
+        document.getElementById(
+            "candleText"
+        );
+
+
+    text.innerText =
+        "Blow now 💨💨💨";
+
+
+    try {
+
+        microphoneStream =
+            await navigator
+                .mediaDevices
+                .getUserMedia({
+                    audio: true
+                });
+
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+        audioContext =
+            new AudioContext();
+
+
+        if (
+            audioContext.state ===
+            "suspended"
+        ) {
+
+            await audioContext.resume();
+
+        }
+
+
+        analyser =
+            audioContext.createAnalyser();
+
+
+        /*
+           Small FFT size makes detection
+           quick and simple.
+        */
+
+        analyser.fftSize = 256;
+
+
+        microphone =
+            audioContext
+                .createMediaStreamSource(
+                    microphoneStream
+                );
+
+
+        microphone.connect(
+            analyser
+        );
+
+
+        listening = true;
+
+
+        detectSound();
+
+
+    } catch (error) {
+
+        text.innerText =
+            "Please allow microphone access ❤️";
+
+
+        alert(
+            "Please tap Allow when the microphone permission appears."
+        );
+
+    }
+
+}
+
+
+
+/*
+   EASY SOUND DETECTION.
+
+   A blow close to the phone microphone
+   creates a strong sound level.
+
+   The threshold is deliberately low.
+*/
+
+function detectSound() {
+
+    if (!listening) {
+
+        return;
+
+    }
+
+
+    const data =
+        new Uint8Array(
+            analyser.frequencyBinCount
+        );
+
+
+    analyser.getByteFrequencyData(
+        data
+    );
+
+
+    let total = 0;
+
+
+    for (
+        let i = 0;
+        i < data.length;
+        i++
+    ) {
+
+        total += data[i];
+
+    }
+
+
+    const average =
+        total / data.length;
+
+
+    /*
+       LOW THRESHOLD = EASY TO TRIGGER
+    */
+
+    if (average > 12) {
+
+        candleOff();
+
+        return;
+
+    }
+
+
+    requestAnimationFrame(
+        detectSound
+    );
+
+}
+
+
+
+/* ================================================= */
+/* TURN CANDLE OFF */
+/* ================================================= */
+
+function candleOff() {
+
+    listening = false;
+
+
+    document.getElementById(
+        "flame"
+    ).classList.add(
+        "off"
+    );
+
+
+    document.getElementById(
+        "candleText"
+    ).innerText =
+        "You did it! 🥹✨ Make a wish ❤️";
+
+
+    document.getElementById(
+        "wish"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "continueAfterCandle"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    if (microphoneStream) {
+
+        microphoneStream
+            .getTracks()
+            .forEach(function(track) {
+
+                track.stop();
+
+            });
+
+    }
+
+
+    if (audioContext) {
+
+        audioContext.close();
+
+    }
+
+
+    createConfetti();
+
+}
+
+
+
+/* ================================================= */
+/* CONFETTI */
+/* ================================================= */
+
+function createConfetti() {
+
+    const emojis = [
+        "❤️",
+        "🎉",
+        "🎈",
+        "✨",
+        "💖",
+        "🥳"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 30;
+        i++
+    ) {
+
+        const item =
+            document.createElement(
+                "div"
+            );
+
+
+        item.className =
+            "confetti";
+
+
+        item.innerText =
+            emojis[
+                Math.floor(
+                    Math.random() *
+                    emojis.length
+                )
+            ];
+
+
+        item.style.left =
+            Math.random() *
+            100 +
+            "vw";
+
+
+        item.style.animationDelay =
+            Math.random() *
+            1.5 +
+            "s";
+
+
+        document.body.appendChild(
+            item
+        );
+
+
+        setTimeout(function() {
+
+            item.remove();
+
+        }, 4000);
+
+    }
+
+}
+
+</script>
+
+</body>
+    </html>
